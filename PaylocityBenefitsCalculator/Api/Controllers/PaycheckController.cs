@@ -19,7 +19,7 @@ public class PaycheckController : ControllerBase
     }
 
     [SwaggerOperation(Summary = "Get paycheck for employee id and year by paycheck number 1 to 26")]
-    [HttpGet("{employeeId}/{year}/{paycheckNumber}")]
+    [HttpGet("")]
     public async Task<ActionResult<ApiResponse<List<GetPaycheckDto>>>> Get(int employeeId, int year, int paycheckNumber)
     {
         ApiResponse<GetPaycheckDto> result = new() { Success = false };
@@ -37,6 +37,8 @@ public class PaycheckController : ControllerBase
         }
         catch (NullReferenceException)
         {
+            // question: ApiResponse Message and Error properties, what are the policies about providing details to the consumer
+            // is it used internally, so it is ok to provide Error details or is it better to hide these values as they may contain stuff we don't want to expose?
             return NotFound(result);
         }
         catch
@@ -46,7 +48,7 @@ public class PaycheckController : ControllerBase
     }
 
     [SwaggerOperation(Summary = "Get all paycheck for employee and year")]
-    [HttpGet("{employeeId}/{year}")]
+    [HttpGet("All")]
     public async Task<ActionResult<ApiResponse<List<GetPaycheckDto>>>> Get(int employeeId, int year)
     {
         ApiResponse<List<GetPaycheckDto>> result = new() { Success = false };

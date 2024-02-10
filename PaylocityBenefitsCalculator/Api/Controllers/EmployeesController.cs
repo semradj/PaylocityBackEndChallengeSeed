@@ -1,12 +1,9 @@
 ﻿using Api.Dtos;
-using Api.Dtos.Dependent;
 using Api.Dtos.Employee;
 using Api.Models;
 using Api.Repository;
-using Api.Services;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using System.Collections.Generic;
 
 namespace Api.Controllers;
 

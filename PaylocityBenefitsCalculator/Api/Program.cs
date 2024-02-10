@@ -18,10 +18,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// moved to separate file to keep code clean
 RegisterRepositories(builder);
 RegisterServices(builder);
 
-// it would be nice to add GraphQL to display employees with all their paychecks
 var allowLocalhost = "allow localhost";
 builder.Services.AddCors(options =>
 {
@@ -48,4 +48,5 @@ app.MapControllers();
 
 app.Run();
 
+// added this to so WebApplicationFactory for integration tests works
 public partial class Program { }

@@ -7,9 +7,6 @@ public interface IDependentsRepository
     // if proper data source is used like db or some api, following methods would be Tasks so we can use async / await
     Task<Dependent> GetDependentById(int id);
     Task<List<Dependent>> GetAllDependents();
-    Task<List<Dependent>> GetAllDependentsForEmployee(int employeeId);
-
-
 }
 
 public class DependentsRepository : IDependentsRepository
@@ -47,15 +44,5 @@ public class DependentsRepository : IDependentsRepository
     public async Task<List<Dependent>> GetAllDependents()
     {
         return await Task.FromResult(_dataSource);
-    }
-
-    /// <summary>
-    /// Returns list of all dependens for provided employee
-    /// </summary>
-    /// <param name="employeeId">Employee id</param>
-    /// <returns></returns>
-    public async Task<List<Dependent>> GetAllDependentsForEmployee(int employeeId)
-    {
-        return await Task.FromResult(_dataSource.Where(x => x.EmployeeId == employeeId).ToList());
     }
 }

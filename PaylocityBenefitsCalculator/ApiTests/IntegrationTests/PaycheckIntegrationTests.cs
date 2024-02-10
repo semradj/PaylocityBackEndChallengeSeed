@@ -11,7 +11,7 @@ public class PaycheckIntegrationTests : IntegrationTest
     [Fact]
     public async Task WhenAskedForAnEmployee_ShouldReturnCorrectEmployee()
     {
-        var response = await HttpClient.GetAsync("/api/v1/paycheck/3/2023/1");
+        var response = await HttpClient.GetAsync("/api/v1/paycheck?employeeId=3&year=2023&paycheckNumber=1");
 
         var paycheck = new GetPaycheckDto()
         {
@@ -33,7 +33,7 @@ public class PaycheckIntegrationTests : IntegrationTest
     [Fact]
     public async Task WhenAskedForPaychecksForNonExistenEmployee_ShoulReturn404()
     {
-        var response = await HttpClient.GetAsync($"/api/v1/paycheck/{int.MinValue}/2023/1");
+        var response = await HttpClient.GetAsync($"/api/v1/paycheck?employeeId={int.MinValue}&year=2023&paycheckNumber=1");
         await response.ShouldReturn(HttpStatusCode.NotFound);
     }
 }

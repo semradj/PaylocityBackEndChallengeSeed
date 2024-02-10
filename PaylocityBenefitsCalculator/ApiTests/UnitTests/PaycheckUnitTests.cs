@@ -14,7 +14,7 @@ public class PaycheckUnitTests
 {
     // note: this is only unit test class added in this exercise, but for real project, there will be more unit tests for repositories, ...
 
-    private JsonSerializerSettings _serializerSettings = new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
+    private readonly JsonSerializerSettings _serializerSettings = new() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
 
     #region All yearly paychecks
     [Fact]
@@ -57,7 +57,7 @@ public class PaycheckUnitTests
         var result = await sut.GetPaychecksForEmployee(e.Id, 2023);
 
         Assert.NotNull(result);
-        Assert.Equal(26, result.Count());
+        Assert.Equal(26, result.Count);
         Assert.Equal(JsonConvert.SerializeObject(expected), JsonConvert.SerializeObject(result));
     }
 
@@ -100,7 +100,7 @@ public class PaycheckUnitTests
         var result = await sut.GetPaychecksForEmployee(e.Id, 2023);
 
         Assert.NotNull(result);
-        Assert.Equal(26, result.Count());
+        Assert.Equal(26, result.Count);
         Assert.Equal(JsonConvert.SerializeObject(expected), JsonConvert.SerializeObject(result));
     }
 
@@ -156,7 +156,7 @@ public class PaycheckUnitTests
         var result = await sut.GetPaychecksForEmployee(e.Id, 2023);
 
         Assert.NotNull(result);
-        Assert.Equal(26, result.Count());
+        Assert.Equal(26, result.Count);
         Assert.Equal(JsonConvert.SerializeObject(expected, _serializerSettings), JsonConvert.SerializeObject(result, _serializerSettings));
     }
 
@@ -212,7 +212,7 @@ public class PaycheckUnitTests
         var result = await sut.GetPaychecksForEmployee(e.Id, 2023);
 
         Assert.NotNull(result);
-        Assert.Equal(26, result.Count());
+        Assert.Equal(26, result.Count);
         Assert.Equal(JsonConvert.SerializeObject(expected, _serializerSettings), JsonConvert.SerializeObject(result, _serializerSettings));
     }
 
@@ -268,7 +268,7 @@ public class PaycheckUnitTests
         var result = await sut.GetPaychecksForEmployee(e.Id, 2023);
 
         Assert.NotNull(result);
-        Assert.Equal(26, result.Count());
+        Assert.Equal(26, result.Count);
         Assert.Equal(JsonConvert.SerializeObject(expected, _serializerSettings), JsonConvert.SerializeObject(result, _serializerSettings));
     }
 
@@ -324,7 +324,7 @@ public class PaycheckUnitTests
         var result = await sut.GetPaychecksForEmployee(e.Id, 2023);
 
         Assert.NotNull(result);
-        Assert.Equal(26, result.Count());
+        Assert.Equal(26, result.Count);
         Assert.Equal(JsonConvert.SerializeObject(expected, _serializerSettings), JsonConvert.SerializeObject(result, _serializerSettings));
     }
 

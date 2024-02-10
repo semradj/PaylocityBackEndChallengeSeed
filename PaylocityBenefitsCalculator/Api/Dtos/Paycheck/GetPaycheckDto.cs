@@ -1,6 +1,4 @@
-﻿using Api.Dtos.Dependent;
-
-namespace Api.Dtos.Paycheck;
+﻿namespace Api.Dtos.Paycheck;
 
 public class GetPaycheckDto
 {

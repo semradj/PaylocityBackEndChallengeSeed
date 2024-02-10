@@ -6,7 +6,7 @@ namespace ApiTests;
 
 public class IntegrationTest : IDisposable
 {
-    private HttpClient _httpClient;
+    private readonly HttpClient _httpClient;
 
     public IntegrationTest()
     {
