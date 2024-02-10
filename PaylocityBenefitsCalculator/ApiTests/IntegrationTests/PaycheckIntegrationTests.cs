@@ -1,11 +1,7 @@
+using Api.Dtos.Paycheck;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using Api.Dtos.Dependent;
-using Api.Dtos.Employee;
-using Api.Dtos.Paycheck;
-using Api.Models;
 using Xunit;
 
 namespace ApiTests.IntegrationTests;
@@ -37,7 +33,7 @@ public class PaycheckIntegrationTests : IntegrationTest
     [Fact]
     public async Task WhenAskedForPaychecksForNonExistenEmployee_ShoulReturn404()
     {
-        var response = await HttpClient.GetAsync($"/api/v1/paycheck/{int.MinValue}/2023");
+        var response = await HttpClient.GetAsync($"/api/v1/paycheck/{int.MinValue}/2023/1");
         await response.ShouldReturn(HttpStatusCode.NotFound);
     }
 }

@@ -1,13 +1,10 @@
+using Api.Dtos.Dependent;
+using Api.Models;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Api.Dtos.Dependent;
-using Api.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Xunit;
 
 namespace ApiTests.IntegrationTests;

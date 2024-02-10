@@ -6,7 +6,7 @@ namespace ApiTests;
 
 public class IntegrationTest : IDisposable
 {
-    private HttpClient? _httpClient;
+    private HttpClient _httpClient;
 
     public IntegrationTest()
     {
@@ -20,17 +20,6 @@ public class IntegrationTest : IDisposable
     {
         get
         {
-            return _httpClient;
-            if (_httpClient == default)
-            {
-                _httpClient = new HttpClient
-                {
-                    //task: update your port if necessary
-                    BaseAddress = new Uri("https://localhost:7124")
-                };
-                _httpClient.DefaultRequestHeaders.Add("accept", "text/plain");
-            }
-
             return _httpClient;
         }
     }
